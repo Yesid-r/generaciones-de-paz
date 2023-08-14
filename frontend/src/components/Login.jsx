@@ -10,8 +10,8 @@ const Login = () => {
     const [alert, setAlert] = useState(null)
     const [data, setData] = useState({})
 
-    const {dispatch} = useContext(AuthContext);
-    
+    const { dispatch } = useContext(AuthContext);
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -27,16 +27,16 @@ const Login = () => {
             console.log(data);
             setData(data);
             setAlert(data.message); // Always set the alert message
-    
+
             setTimeout(() => {
                 setAlert(null);
             }, 3000);
             if (data.success) {
-                dispatch({type: 'LOGIN_SUCCESS', payload: data.data})
+                dispatch({ type: 'LOGIN_SUCCESS', payload: data.data })
                 localStorage.setItem('token', data.token);
                 window.location.href = '/';
             }
-    
+
         } catch (error) {
             setAlert(error.message);
             setTimeout(() => {
@@ -44,19 +44,19 @@ const Login = () => {
             }, 3000);
         }
     };
-    
+
 
     return (
-        <section class="bg-gray-50 min-h-screen flex items-center justify-center">
+        <section class="bg-white min-h-screen flex items-center justify-center">
 
-            <div class=" flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
+            <div class=" flex border rounded-2xl shadow-lg max-w-3xl p-5 items-center">
 
-                <div class="md:w-1/2 px-8 md:px-16">
+                <div class="md:w-1/2 px-8 md:px-16 ">
                     {alert && (
                         <div
                             className={`${data.success
-                                    ? 'bg-green-100 border-t border-b border-green-500 text-green-700'
-                                    : 'bg-red-100 border-t border-b border-red-500 text-red-700'
+                                ? 'bg-green-100 border-t border-b border-green-500 text-green-700'
+                                : 'bg-red-100 border-t border-b border-red-500 text-red-700'
                                 } px-4 py-3`}
                             role="alert"
                         >

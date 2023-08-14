@@ -89,7 +89,7 @@ const CustomNavbar = () => {
                     
                         : <>
                             <NavbarItem>
-                                <Button as={Link} color="primary" href="/login" variant="flat">
+                                <Button as={Link} className='bg-teal-500 text-white' href="/login" variant="flat">
                                     login
                                 </Button>
                             </NavbarItem>
